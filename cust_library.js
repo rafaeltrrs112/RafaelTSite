@@ -25,22 +25,32 @@ function toggleNav() {
         removeClass(ele, "inactive");
         addClass(ele, "active");
         navActive = true;
+        disableBody();
     }
     else if (hasClass(ele, "active")) {
         removeClass(ele, "active");
         addClass(ele, "inactive");
         navActive = false;
+        enableBody();
     }
     else {
         addClass(ele, "active");
         navActive = true;
+        disableBody();
     }
 }
 function bodyScope() {
-    var ele = document.getElementById("slide");
     if (navActive) {
         toggleNav();
     }
+}
+function disableBody() {
+    var ele = document.body;
+    addClass(ele, "no-scroll");
+}
+function enableBody() {
+    var ele = document.body;
+    removeClass(ele, "no-scroll");
 }
 //function init() {
 //    // Get a reference to our touch-sensitive element

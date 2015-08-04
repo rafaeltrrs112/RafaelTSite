@@ -16,34 +16,44 @@ function addClass(ele:HTMLElement,cls: string) : void {
 
 function removeClass(ele:HTMLElement,cls: string): void {
     if (hasClass(ele,cls)) {
-        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        var reg : RegExp = new RegExp('(\\s|^)' + cls + '(\\s|$)');
         ele.className=ele.className.replace(reg,' ');
     }
 }
 function toggleNav(): void {
-    var ele = document.getElementById("main-nav");
+    var ele : HTMLElement = document.getElementById("main-nav");
     if (hasClass(ele,"inactive")) {
         removeClass(ele, "inactive");
         addClass(ele, "active");
         navActive = true;
+        disableBody();
     }
     else if (hasClass(ele,"active")) {
         removeClass(ele, "active");
         addClass(ele, "inactive");
         navActive = false;
+        enableBody();
     }
     else {
         addClass(ele, "active");
         navActive = true;
+        disableBody();
     }
 }
-
 function bodyScope(): void {
-    var ele = document.getElementById("slide");
     if (navActive) {
         toggleNav()
     }
 }
+function disableBody(){
+    var ele : HTMLElement = document.body;
+    addClass(ele, "no-scroll");
+}
+function enableBody(){
+    var ele : HTMLElement = document.body;
+    removeClass(ele, "no-scroll");
+}
+
 //function init() {
 //    // Get a reference to our touch-sensitive element
 //    var touchzone = document.getElementById("touchzone");
