@@ -72,11 +72,12 @@ body.no-scroll {
 }
 #nav-button {
     position:absolute;
-    left: 0;
     z-index : 0;
     -webkit-transition: transform .3s linear;
     height:60px;
-    width:70px;
+    width:60px;
+    top : 10px;
+    left: 10px;
 }
 #nav-button.active {
     transition: .25s linear;
