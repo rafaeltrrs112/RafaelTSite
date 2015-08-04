@@ -1,27 +1,38 @@
- window.addEventListener('load', function(){
+///<reference path="TouchEvent.d.ts"/>
+///<reference path="cust_library.ts"/>
+//Touch events for the mobile portions of the site.
+window.addEventListener('load', function(){
 
-        var box1 = document.getElementById('box1');
-        var statusdiv = document.getElementById('statusdiv');
+        var box1 : HTMLElement = document.getElementById('nav-button');
+        var box2 : HTMLElement = document.getElementById('content-box');
+        var statusdiv : HTMLElement = document.getElementById('statusdiv');
         var startx = 0;
-        var dist = 0;
 
-        box1.addEventListener('touchstart', function(e){
+        box1.addEventListener('touchstart', function(e : TouchEvent){
             var touchobj = e.changedTouches[0] ;// reference first touch point (ie: first finger)
-            startx = parseInt(touchobj.clientX) ;// get x position of touch point relative to left edge of browser
-            statusdiv.innerHTML = 'Status: touchstart<br> ClientX: ' + startx + 'px';
+            startx = parseInt(touchobj.clientX.toString()) ;// get x position of touch point relative to left edge of browser
+            console.log('Status: touchstart ClientX: ' + startx + 'px');
+            e.preventDefault();
+            toggleNav();
+        }, false);
+
+        box2.addEventListener('touchstart', function(e : TouchEvent){
+            var touchobj = e.changedTouches[0] ;// reference first touch point (ie: first finger)
+            startx = parseInt(touchobj.clientX.toString()) ;// get x position of touch point relative to left edge of browser
+            e.preventDefault();
+            bodyScope();
+        }, false);
+
+        box1.addEventListener('touchmove', function(e: TouchEvent){
+            var touchobj = e.changedTouches[0] ;// reference first touch point for this event
+            var dist = parseInt(touchobj.clientX.toString()) - startx;
+            console.log('Status: touchmove \n Horizontal distance traveled: ' + dist + 'px');
             e.preventDefault()
         }, false);
 
-        box1.addEventListener('touchmove', function(e){
+        box1.addEventListener('touchend', function(e: TouchEvent){
             var touchobj = e.changedTouches[0] ;// reference first touch point for this event
-            var dist = parseInt(touchobj.clientX) - startx;
-            statusdiv.innerHTML = 'Status: touchmove<br> Horizontal distance traveled: ' + dist + 'px';
-            e.preventDefault()
-        }, false);
-
-        box1.addEventListener('touchend', function(e){
-            var touchobj = e.changedTouches[0] ;// reference first touch point for this event
-            statusdiv.innerHTML = 'Status: touchend<br> Resting x coordinate: ' + touchobj.clientX + 'px';
+            console.log('Status: touchend \n Resting x coordinate: ' + touchobj.clientX + 'px');
             e.preventDefault()
         }, false)
 

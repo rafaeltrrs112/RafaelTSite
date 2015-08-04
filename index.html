@@ -1,10 +1,12 @@
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="cust_library.js"></script>
 </head>
 <link rel="stylesheet" type="text/css" href="styles.css">
 <body>
+<img src="burger3.png" id="nav-button" onclick="toggleNav()">
 <header>
     <div class="element" id="main-nav">
         <div id="logo">R</div>
@@ -16,14 +18,12 @@
         <div id="bar"></div>
     </div>
 </header>
-<img src="burger.svg" id="nav-button" >
-<!--<main onclick="bodyScope()"></main>-->
-<main>
-<!--<div id="touchzone"></div>-->
+
+<main onclick="bodyScope()"></main>
+<main id="content-box">
 </main>
 <script src="HelloWorld.js"></script>
 <script>
-
 </script>
 </body>
 </html>

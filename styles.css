@@ -67,8 +67,8 @@ main {
     left: 0;
     z-index : 0;
     -webkit-transition: transform .3s linear;
-    height: 50px;
-    width:50px;
+    height:60px;
+    width:70px;
 }
 #nav-button.active {
     transition: .25s linear;
@@ -77,15 +77,6 @@ main {
 #nav-button.inactive{
     -webkit-transform: translate3d( 100px, 0, 0 );
 }
-#touchzone {
-    width:100px;
-    height: 100px;
-    background-color:blue;
-    z-index: 999;
-}
-#coords{
-    font-size: 400px;
-}
 .wrapper {
     position: relative;
     overflow: hidden;
@@ -93,3 +84,4 @@ main {
     height: 100vh;
     border: 1px solid black;
 }
+
