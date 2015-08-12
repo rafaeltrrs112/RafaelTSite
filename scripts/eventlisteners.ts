@@ -1,8 +1,7 @@
 ///<reference path="TSTypes/TouchEvent.d.ts"/>
-///<reference path="pointslib.ts"/>
+///<reference path="tnplib.ts"/>
 //Touch events for the mobile portions of the site creates four event listeners.
 window.addEventListener('load', function(){
-
     //Comment out this code to ensure that you understand what is going on.
     var nav_button : HTMLElement = document.getElementById('nav-button');
     var body_box : HTMLElement = document.getElementById('content-box');
@@ -13,11 +12,10 @@ window.addEventListener('load', function(){
             e.preventDefault();
             toggleNav();
         }, false);
-
-    //Event listener for the body to disableNav() if nav is active and the user taps the body.
-    body_box.addEventListener('touchstart', function(e : TouchEvent){
-        var touchobj = e.changedTouches[0] ;// reference first touch point (ie: first finger)
-        e.preventDefault();
-        bodyScope();
-    }, false);
+        //Event listener for the body to disableNav() if nav is active and the user taps the body.
+        body_box.addEventListener('touchstart', function(e : TouchEvent){
+            var touchobj = e.changedTouches[0] ;// reference first touch point (ie: first finger)
+            e.preventDefault();
+            bodyScope();
+        }, false);
 }, false);

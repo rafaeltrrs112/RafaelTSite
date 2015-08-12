@@ -12,11 +12,11 @@ body.no-scroll {
 }
 @font-face {
     font-family: lovelo;
-    src: url(/fonts/Lovelo%20Line%20Bold.otf);
+    src: url(../fonts/Lovelo%20Line%20Bold.otf);
 }
 @font-face {
     font-family: lovelo-black;
-    src: url(/fonts/Lovelo%20Black.otf);
+    src: url(../fonts/Lovelo%20Black.otf);
 }
 .element {
     height: 100vh;
@@ -93,4 +93,31 @@ body.no-scroll {
     height: 100vh;
     border: 1px solid black;
 }
+#content-box{
+    padding-left: 225px;
+    padding-top:50px;
+}
+.mid{
+    position:relative;
+    left: 95px;
+}
+.bottom{
+    position:relative;
+    left: 190px;
+}
+.top, .mid, .bottom {
+     width: 100px;
+     height: 100px;
+     -webkit-transition: transform .3s linear;
+     -webkit-transform: translate3d(0, 0, 0);
+ }
+.mid.stacked, .bottom.stacked {
+    -webkit-transform: translate3d(0, 0, 0);
 
+}
+.mid.spread {
+    -webkit-transform: translate3d(0, 100px, 0);
+}
+.bottom.spread{
+    -webkit-transform: translate3d(0, 200px, 0);
+}

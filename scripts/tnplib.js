@@ -1,9 +1,11 @@
 /**
- * Created by rotor on 8/3/2015.
  * Adding and removing class without jQuery using HTML elements.
  */
 //Checks if a class is present in an HTML element using regex checks.
 ///<reference path="TSTypes/TouchEvent.d.ts"/>
+function getID(s) {
+    return document.getElementById(s);
+}
 var navActive = false;
 function hasClass(ele, cls) {
     return !!ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
@@ -37,6 +39,22 @@ function toggleNav() {
         navActive = true;
         disableBody();
     }
+}
+function toggleCircle() {
+    var elems = [getID("img-0"), getID("img-1"), getID("img-2")];
+    elems.forEach(function (ele) {
+        if (hasClass(ele, "stacked")) {
+            removeClass(ele, "stacked");
+            addClass(ele, "spread");
+        }
+        else if (hasClass(ele, "spread")) {
+            removeClass(ele, "spread");
+            addClass(ele, "stacked");
+        }
+        else {
+            addClass(ele, "spread");
+        }
+    });
 }
 function bodyScope() {
     if (navActive) {
